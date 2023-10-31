@@ -9,11 +9,11 @@ public class 组合 {
 
     public List<List<Integer>> combine(int n, int k) {
         List<Integer> path = new ArrayList<>();
-        dfs(n, k, path, 1);
+        backtrack(n, k, path, 1);
         return res;
     }
 
-    private void dfs(int n, int k, List<Integer> path, int start) {
+    private void backtrack(int n, int k, List<Integer> path, int start) {
         if (k == path.size()) {
             res.add(new ArrayList<>(path));
             return;
@@ -21,7 +21,7 @@ public class 组合 {
 
         for (int i = start; i <= n; i++) {
             path.add(i);
-            dfs(n, k, path, i + 1);
+            backtrack(n, k, path, i + 1);
             path.remove(path.size() - 1);
         }
     }

@@ -8,11 +8,11 @@ public class 组合总和 {
 
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
         List<Integer> path = new ArrayList<>();
-        dfs(candidates, target, path, 0);
+        backtrack(candidates, target, path, 0);
         return res;
     }
 
-    private void dfs(int[] candidates, int target, List<Integer> path, int start) {
+    private void backtrack(int[] candidates, int target, List<Integer> path, int start) {
         if (target == 0) {
             res.add(new ArrayList<>(path));
             return;
@@ -23,7 +23,7 @@ public class 组合总和 {
         for (int i = start; i < candidates.length; i++) {
             path.add(candidates[i]);
             target -= candidates[i];
-            dfs(candidates, target, path, i);
+            backtrack(candidates, target, path, i);
             target += candidates[i];
             path.remove(path.size() - 1);
         }
