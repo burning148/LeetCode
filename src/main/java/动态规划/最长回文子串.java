@@ -16,7 +16,7 @@ public class 最长回文子串 {
         int start = 0;
 
         for (int len = 2; len <= n; len++) {
-            for (int i = 0; i <= n - len; i++) {
+            for (int i = 0; i < n - len + 1; i++) {
                 int j = i + len - 1;
                 if (s.charAt(i) == s.charAt(j)) {
                     // 子串长度为2或者去掉首尾字符后仍为回文串
