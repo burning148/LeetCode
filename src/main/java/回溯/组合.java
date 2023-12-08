@@ -5,15 +5,15 @@ import java.util.List;
 
 public class 组合 {
 
-    List<List<Integer>> res = new ArrayList<>();
+    private List<List<Integer>> res = new ArrayList<>();
+    private List<Integer> path = new ArrayList<>();
 
     public List<List<Integer>> combine(int n, int k) {
-        List<Integer> path = new ArrayList<>();
-        backtrack(n, k, path, 1);
+        backtrack(n, k,1);
         return res;
     }
 
-    private void backtrack(int n, int k, List<Integer> path, int start) {
+    private void backtrack(int n, int k, int start) {
         if (k == path.size()) {
             res.add(new ArrayList<>(path));
             return;
@@ -21,7 +21,7 @@ public class 组合 {
 
         for (int i = start; i <= n; i++) {
             path.add(i);
-            backtrack(n, k, path, i + 1);
+            backtrack(n, k, i + 1);
             path.remove(path.size() - 1);
         }
     }

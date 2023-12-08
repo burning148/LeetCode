@@ -4,15 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class 组合总和 {
-    List<List<Integer>> res = new ArrayList<>();
-
+    private List<List<Integer>> res = new ArrayList<>();
+    private List<Integer> path = new ArrayList<>();
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
-        List<Integer> path = new ArrayList<>();
-        backtrack(candidates, target, path, 0);
+        backtrack(candidates, target, 0);
         return res;
     }
 
-    private void backtrack(int[] candidates, int target, List<Integer> path, int start) {
+    private void backtrack(int[] candidates, int target, int start) {
         if (target == 0) {
             res.add(new ArrayList<>(path));
             return;
@@ -23,7 +22,7 @@ public class 组合总和 {
         for (int i = start; i < candidates.length; i++) {
             path.add(candidates[i]);
             target -= candidates[i];
-            backtrack(candidates, target, path, i);
+            backtrack(candidates, target, i);
             target += candidates[i];
             path.remove(path.size() - 1);
         }
