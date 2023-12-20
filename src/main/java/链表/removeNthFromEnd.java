@@ -7,8 +7,7 @@ package 链表;
 public class removeNthFromEnd {
 
     public ListNode removeNthFromEnd(ListNode head, int n) {
-        ListNode dummy = new ListNode(-1);
-        dummy.next = head;
+        ListNode dummy = new ListNode(-1, head);
         ListNode x = findNthFromEnd(dummy, n + 1); // 先找到倒数第n + 1个节点, 使用dummy避免空指针
         x.next = x.next.next;
         return dummy.next;

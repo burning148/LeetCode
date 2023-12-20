@@ -30,6 +30,44 @@ public class 最长回文子串 {
             right++;
         }
         // 退出循环时候，left在最长回文串的左边，right在最长回文串的右边， 所以需要-1； 例如 {aba}，退出循环时候，left = -1， right = 3
-        return right- left - 1;
+        return right - left - 1;
+    }
+
+    /**
+     * 动态规划
+     * @param s
+     * @return
+     */
+    public String longestPalindrome2(String s) {
+        int n = s.length();
+        if (n < 2) {
+            return s;
+        }
+        // dp[i][j]的含义是以i为左边界，j为右边界的字符串是否为回文串
+        boolean[][] dp = new boolean[n][n];
+        // 长度为1的字符串都为回文串
+        for (int i = 0; i < n; i++) {
+            dp[i][i] = true;
+        }
+
+        int maxLen = 1;
+        int start = 0;
+        for (int len = 2; len <= n; len++) {
+            for (int i = 0; i <= n - len; i++) {
+                int j = i + len - 1; // j <= n - 1
+                if (s.charAt(i) == s.charAt(j)) {
+                    // 子串长度为2或者
+                    if (len == 2 || dp[i + 1][j - 1]) {
+                        dp[i][j] = true;
+                        if (len > maxLen) {
+                            len = maxLen;
+                            start = i;
+                        }
+                    }
+                }
+            }
+        }
+
+        return s.substring(start, start + maxLen);
     }
 }
