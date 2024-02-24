@@ -1,5 +1,7 @@
 package 二叉树;
 
+import com.sun.corba.se.spi.oa.ObjectAdapterFactory;
+
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -7,28 +9,27 @@ public class 二叉树的完全性检验 {
 
     public boolean isCompleteTree(TreeNode root) {
         if (root == null) {
+            // 空树是完全二叉树
             return true;
         }
+
         Queue<TreeNode> q = new LinkedList<>();
         q.offer(root);
-        boolean flag = false; // 是否遇到左右孩子不全的节点
+        // 标记是否遇到了空节点
+        boolean empty = false;
+
         while (!q.isEmpty()) {
-            int size = q.size();
-            for (int i = 0; i < size; i++) {
-                TreeNode cur = q.poll();
-                if ((cur.left == null && cur.right != null) // 左孩子为空，右孩子不为空
-                        || (flag && (cur.left != null || cur.right != null))) { // 如果遇到过左右孩子不全的节点，那么下面的节点必须都为叶子节点
+            TreeNode cur = q.poll();
+            if (cur == null) {
+                empty = true;
+            } else {
+                // 此时遍历非空节点
+                if (empty) { // 当遇到了空节点后，又遇到了非空节点 表示非完全二叉树
                     return false;
                 }
-                if (cur.left != null) {
-                    q.offer(cur.left);
-                }
-                if (cur.right != null) {
-                    q.offer(cur.right);
-                }
-                if (cur.left == null || cur.right == null) {
-                    flag = true;
-                }
+                // 将左右子节点包括空节点入列
+                q.offer(cur.left);
+                q.offer(cur.right);
             }
         }
 

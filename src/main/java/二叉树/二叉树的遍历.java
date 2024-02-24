@@ -48,7 +48,7 @@ public class 二叉树的遍历 {
             return res;
         }
         Queue<TreeNode> q = new LinkedList<>();
-        q.add(root);
+        q.offer(root);
         while (!q.isEmpty()) { // 从上至下
             int size = q.size();
             List<Integer> levelNode = new ArrayList<>();
@@ -76,7 +76,7 @@ public class 二叉树的遍历 {
             return res;
         }
         Queue<TreeNode> q = new LinkedList<>();
-        q.add(root);
+        q.offer(root);
         while (!q.isEmpty()) { // 从上至下
             int size = q.size();
             List<Integer> levelNode = new ArrayList<>();
