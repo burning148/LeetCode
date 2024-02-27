@@ -1,9 +1,10 @@
 package 二叉树;
 
+
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class 填充每个节点的下一个右侧节点指针2 {
+public class 填充每个节点的下一个右侧节点指针 {
     public Node connect(Node root) {
         if (root == null) {
             return null;
@@ -14,8 +15,8 @@ public class 填充每个节点的下一个右侧节点指针2 {
             int size = q.size();
             for (int i = 0; i < size; i++) {
                 Node cur = q.poll();
-                if (i != size - 1) {
-                    cur.next = q.peek();
+                if (i != size - 1) { // 不是这一层最后一个节点
+                    cur.next = q.peek(); // 连接节点
                 }
                 if (cur.left != null) {
                     q.offer(cur.left);
@@ -25,7 +26,6 @@ public class 填充每个节点的下一个右侧节点指针2 {
                 }
             }
         }
-
         return root;
     }
 }
