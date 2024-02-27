@@ -4,7 +4,7 @@ package 链表;
  * @author wangjun294
  * @description 寻找环状链表起点
  */
-public class DetectCycle {
+public class 环形链表2 {
     public ListNode detectCycle(ListNode head) {
         ListNode slow = head, fast = head;
         while (fast != null && fast.next != null) {

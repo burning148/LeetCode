@@ -4,7 +4,7 @@ package 链表;
  * @author wangjun294
  * @description 160.相交链表
  */
-public class GetIntersectionNode {
+public class 相交链表 {
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
         ListNode p1 = headA, p2 = headB;
         while (p1 != p2) {

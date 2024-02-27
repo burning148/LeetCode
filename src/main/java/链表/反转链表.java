@@ -4,12 +4,7 @@ package 链表;
  * @author wangjun294
  * @description 206.反转链表
  */
-public class reverseList {
-    /**
-     * 输入节点head，将以head为起点的链表反转，并返回反转后的头节点
-     * @param head
-     * @return
-     */
+public class 反转链表 {
     public ListNode reverseList(ListNode head) {
         if (head == null || head.next == null) { // 链表为空或只有一个节点时，直接返回头节点
             return head;
@@ -18,6 +13,17 @@ public class reverseList {
         head.next.next = head;
         head.next = null;
         return last;
+    }
+
+    public ListNode reverseList2(ListNode head) {
+        ListNode pre = null, cur = head;
+        while (cur != null) {
+            ListNode next = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = next;
+        }
+        return pre;
     }
 
     /**

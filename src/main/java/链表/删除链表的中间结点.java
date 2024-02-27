@@ -5,7 +5,7 @@ public class 删除链表的中间结点 {
         ListNode dummy = new ListNode(-1, head);
         ListNode slow = dummy;
         ListNode fast = dummy;
-        while (fast.next != null && fast.next.next != null) { // 跳出循环时fast再跳一次才为空,这与找链表的中间节点是不用的
+        while (fast.next != null && fast.next.next != null) { // 跳出循环时fast再跳一次才为空,这与找链表的中间节点是不同的
             slow = slow.next;
             fast = fast.next.next;
         }

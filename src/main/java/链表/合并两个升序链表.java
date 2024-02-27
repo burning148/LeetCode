@@ -5,7 +5,7 @@ package 链表;
  *
  * @author wangjun294
  */
-public class MergeTwoLists {
+public class 合并两个升序链表 {
 
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
         ListNode dummy = new ListNode(-1);

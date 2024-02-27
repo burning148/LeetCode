@@ -1,4 +1,6 @@
-package 二叉树;
+package 二叉树.二叉树搜索树;
+
+import 二叉树.TreeNode;
 
 public class 修剪二叉搜索树 {
     public TreeNode trimBST(TreeNode root, int low, int high) {

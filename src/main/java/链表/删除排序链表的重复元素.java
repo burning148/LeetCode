@@ -5,11 +5,8 @@ public class 删除排序链表的重复元素 {
         if (head == null) return null;
         ListNode cur = head;
         while (cur.next != null) {
-            if (cur.val == cur.next.val) {
-                int val = cur.val;
-                while (cur.next != null && cur.next.val == val) {
-                    cur.next = cur.next.next;
-                }
+            if (cur.next.val == cur.val) {
+                cur.next = cur.next.next;
             } else {
                 cur = cur.next;
             }

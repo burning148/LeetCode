@@ -4,7 +4,7 @@ package 链表;
  * @author wangjun294
  * @description 19.删除链表的倒数第n个节点
  */
-public class removeNthFromEnd {
+public class 删除链表的倒数第n个节点 {
 
     public ListNode removeNthFromEnd(ListNode head, int n) {
         ListNode dummy = new ListNode(-1, head);

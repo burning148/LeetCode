@@ -7,7 +7,7 @@ import java.util.PriorityQueue;
  * 23. 合并k个升序链表
  * @author wangjun294
  */
-public class MergeKLists {
+public class 合并k个升序链表 {
 
     public ListNode mergeKLists(ListNode[] lists) {
         ListNode dummy = new ListNode();

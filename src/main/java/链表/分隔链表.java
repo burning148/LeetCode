@@ -11,7 +11,7 @@ package 链表;
  *
  * @author wangjun294
  */
-public class Partition {
+public class 分隔链表 {
 
     public ListNode partition(ListNode head, int x) {
         ListNode dummy1 = new ListNode(-1);
