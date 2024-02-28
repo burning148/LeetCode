@@ -27,11 +27,10 @@ public class K个一组反转链表 {
      * @return
      */
     private ListNode reverse(ListNode a, ListNode b) {
-        ListNode pre, cur, next;
-        pre = null;  cur = a; next = a;
+        ListNode pre = null, cur = a;
         while (cur != b) {
             // 反转节点
-            next = cur.next;
+            ListNode next = cur.next;
             cur.next = pre;
             // 移动指针
             pre = cur;
